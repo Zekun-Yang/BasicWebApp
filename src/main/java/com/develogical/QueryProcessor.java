@@ -1,5 +1,7 @@
 package com.develogical;
 
+import java.lang.reflect.Array;
+import java.util.ArrayList;
 import java.util.Arrays;
 
 public class QueryProcessor {
@@ -62,7 +64,23 @@ public class QueryProcessor {
         }
 
 
-        if (query.toLowerCase().contains("what is") && query.toLowerCase().contains("plus") && query.toLowerCase().contains("minus")) {
+        if(query.toLowerCase().contains("which of the following numbers are primes:")){
+
+            String[] tmp =  query.toLowerCase().split(" ");
+            ArrayList<Integer> result = new ArrayList<Integer>();
+            for (String s:tmp){
+                if (isNumeric(s) && isPrime(Integer.parseInt(s))){
+                    result.add(Integer.parseInt(s));
+                }
+            }
+            return result.toString();
+
+        }
+
+
+
+
+        if (query.toLowerCase().contains("what is") && (query.toLowerCase().contains("plus") || query.toLowerCase().contains("minus"))) {
             String[] tmp = query.toLowerCase().split(" ");
             int op = -1;
             for (String s:tmp){
