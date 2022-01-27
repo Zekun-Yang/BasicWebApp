@@ -23,7 +23,7 @@ public class QueryProcessor {
             return "Alpha";
         }
 
-        if (query.toLowerCase().contains("largest")){
+        if (query.toLowerCase().contains("largest:")){
             String[] tmp =  query.toLowerCase().split(" ");
             String[] nums = Arrays.copyOfRange(tmp, 1, tmp.length);
             int largest = Integer.parseInt( nums[0]);
