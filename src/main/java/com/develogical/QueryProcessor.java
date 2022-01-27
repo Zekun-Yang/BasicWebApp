@@ -23,9 +23,9 @@ public class QueryProcessor {
             return "Alpha";
         }
 
-        if (query.toLowerCase().contains("largest:")){
+        if (query.toLowerCase().contains("which of the following numbers is the largest:")){
             String[] tmp =  query.toLowerCase().split(" ");
-            String[] nums = Arrays.copyOfRange(tmp, 1, tmp.length);
+            String[] nums = Arrays.copyOfRange(tmp, 8, tmp.length);
             int largest = Integer.parseInt( nums[0]);
             for (String s : nums){
                 int tmp2 = Integer.parseInt(s);
