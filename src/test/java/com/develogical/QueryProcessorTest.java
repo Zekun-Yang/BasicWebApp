@@ -40,4 +40,10 @@ public class QueryProcessorTest {
     public void knowsTeam() throws Exception {
         assertThat(queryProcessor.process("name"), containsString("Alpha"));
     }
+
+    @Test
+    public void knowsLargest() throws Exception {
+        //1234 1236 2048
+        assertThat(queryProcessor.process("largest: 1234 2048 1235"), containsString("2048"));
+    }
 }
