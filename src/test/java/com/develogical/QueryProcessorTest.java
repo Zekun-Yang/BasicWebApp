@@ -52,5 +52,10 @@ public class QueryProcessorTest {
         assertThat(queryProcessor.process("what is 20 plus 15"), containsString("35"));
     }
 
+    @Test
+    public void knowsWhatIs2() throws Exception {
+        assertThat(queryProcessor.process("what is 20 minus 15"), containsString("5"));
+    }
+
 
 }
