@@ -14,7 +14,7 @@ public class QueryProcessor {
         }
 
         if (query.toLowerCase().contains("zekun")) {
-            return "Hi! Zekun Yang";
+            return "Hi! Zekun Yang"
         }
         return "";
     }
