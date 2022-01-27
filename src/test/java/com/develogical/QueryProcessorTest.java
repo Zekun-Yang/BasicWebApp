@@ -38,6 +38,6 @@ public class QueryProcessorTest {
 
     @Test
     public void knowsTeam() throws Exception {
-        assertThat(queryProcessor.process("name"), containsString("name"));
+        assertThat(queryProcessor.process("name"), containsString("Alpha"));
     }
 }

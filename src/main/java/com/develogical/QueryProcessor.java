@@ -18,7 +18,7 @@ public class QueryProcessor {
         }
 
         if(query.toLowerCase().contains(("name"))) {
-            return "name";
+            return "Alpha";
         }
         return "";
     }
