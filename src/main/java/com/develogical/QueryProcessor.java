@@ -3,6 +3,14 @@ package com.develogical;
 import java.util.Arrays;
 
 public class QueryProcessor {
+    public static boolean isNumeric(String str) {
+        try {
+            Double.parseDouble(str);
+            return true;
+        } catch(NumberFormatException e){
+            return false;
+        }
+    }
 
     public String process(String query) {
         if (query.toLowerCase().contains("shakespeare")) {
@@ -37,6 +45,51 @@ public class QueryProcessor {
             return String.valueOf(largest);
 
         }
+
+        if (query.toLowerCase().contains("what is")) {
+            String[] tmp = query.toLowerCase().split(" ");
+            int op = -1;
+            for (String s:tmp){
+                if (s.equals("plus")){
+                    op = 0;
+                    break;
+                }else if(s.equals("minus")){
+                    op = 1;
+                    break;
+                }
+            }
+
+            int result = 0;
+
+            if (op == 0){
+                for (String s:tmp){
+                    if (isNumeric(s)){
+                        result += Integer.parseInt(s);
+                    }
+                }
+                return String.valueOf(result);
+
+            }else{
+                for (String s:tmp){
+                    if (isNumeric(s)){
+                        result = Integer.parseInt(s);
+                        break;
+                    }
+                }
+                for (String s:tmp){
+                    if (isNumeric(s)){
+                        result -= Integer.parseInt(s);
+                    }
+                }
+
+                return String.valueOf(result);
+            }
+
+
+
+
+        }
+
         return "";
     }
 }
